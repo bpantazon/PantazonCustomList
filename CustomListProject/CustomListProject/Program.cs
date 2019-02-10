@@ -11,17 +11,15 @@ namespace CustomListProject
         static void Main(string[] args)
         {
             CustomList<int> list = new CustomList<int>();
-            //list.Count;
-            list.Add(2);
-           
-            list.Add(4);
-           
-            list.Add(6);
-           
-            list.Add(24);
             
+            list.Add(2);           
+            list.Add(4);          
+            list.Add(6);          
+            list.Add(24);           
             list.Add(13);
-            
+            list.Add(9);
+            list.Add(60);
+            list.Add(47);
 
 
         }

@@ -15,8 +15,7 @@ namespace CustomListUnitTest
             CustomList<int> myList = new CustomList<int>();
             int value = 3; //the number being added to the array
             int expectedResult = 1; //the amount of myList.Count that is expected
-            
-            
+                       
             //Act
             myList.Add(value);
 
@@ -45,11 +44,13 @@ namespace CustomListUnitTest
             CustomList<int> myList = new CustomList<int>();
             int value = 3; //the number being added to the array
             int valueTwo = 7; //second int added to array
-            int expectedResult = 2; //the amount of myList.Count that is expected
+            int valueThree = 5;
+            int expectedResult = 3; //the amount of myList.Count that is expected
 
             //Act
             myList.Add(value);
             myList.Add(valueTwo);
+            myList.Add(valueThree);
             //Assert
             Assert.AreEqual(expectedResult, myList.Count);
         }
