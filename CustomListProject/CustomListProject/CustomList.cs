@@ -24,7 +24,13 @@ namespace CustomListProject
             {
                 Capacity += 4;
                 T[] newArray = new T[Capacity];
-                
+                for (int i = 0; i < Count; i++)
+                {
+                    newArray[i] = firstArray[i];
+                }
+                firstArray = newArray;
+                firstArray[Count] = item;
+                Count++;
             }
             else
             {
