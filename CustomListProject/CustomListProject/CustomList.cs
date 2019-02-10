@@ -37,27 +37,7 @@ namespace CustomListProject
                 firstArray[Count] = item;
 
                 Count++;
-            }
-            
-            
-
-            //count equals zero, then for how many items in list, count goes up one
-            //currently runs an infinite loop
-            //for (int i = 0; i < Count; Capacity++)
-            //{
-            //    if (Count > 2)
-            //    {
-            //        T[] items = new T[2];
-            //    }
-            //}
-            
-            //array is made with count and capacity of 0
-            //array is made as T[1]
-            //item is added, count++, capacity = 4
-            //
-            
-            
-            
+            }           
         }
         public void Remove(T item)
         {
