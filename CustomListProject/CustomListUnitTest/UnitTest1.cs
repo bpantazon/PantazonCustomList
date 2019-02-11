@@ -22,6 +22,7 @@ namespace CustomListUnitTest
             //Assert
             Assert.AreEqual(expectedResult, myList.Count);
         }
+       
         [TestMethod]
         public void Add_StringValues_ReturnsCountWithString()
         {
@@ -58,9 +59,22 @@ namespace CustomListUnitTest
         public void Remove_Item_ReturnsListCountMinusOne()
         {
             CustomList<int> myList = new CustomList<int>(); //can't make list with values assigned
+            int value = 3;
+            int valueTwo = 7;
+            int valueThree = 12;
+            int expectedResult = 2;
 
+            myList.Add(value);
+            myList.Add(valueTwo);
+            myList.Add(valueThree);
+            myList.Remove(3);
+
+            Assert.AreEqual(expectedResult, myList.Count);
+            
         }
-        
+
+       
+
         //[TestMethod]
         //public void Indexer_IndexZero_ReturnsValueOfIndexZero()
         //{

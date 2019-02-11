@@ -45,18 +45,23 @@ namespace CustomListProject
                 if (firstArray[i].Equals(item))
                 {
                     Count--;
-                    ShiftArray(i);
+                    ShiftItems(i);
                     return true;
                 }
             }
             return false;
         }
-        private void ShiftArray(int index)
+        //make new array to hold values of firstArray, then start new array 
+        private void ShiftItems(int index)
         {
-            for (int i = 0; i < index; i++)
+            T[] newArray = new T[Capacity];
+            //newArray = firstArray;
+            //index was replaced with Count in for loop
+            for (int i = 0; i < Count; i++)
             {
-                firstArray[i] = firstArray[index + 1];
+                newArray[i] = firstArray[i + 1];
             }
+            firstArray = newArray;
         }
         
     }

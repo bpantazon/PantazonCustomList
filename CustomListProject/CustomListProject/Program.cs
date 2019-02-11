@@ -16,11 +16,15 @@ namespace CustomListProject
             list.Add(4);
             list.Add(6);
             list.Add(24);
-            list.Add(13);
-            list.Add(9);
-            list.Add(60);
-            list.Add(47);
+            //list.Add(27);
+            //list.Add(99);
+            //list.Add("good");
+            //list.Add("bad");
+            //list.Add("Monday");
+            //list.Add("Ron");
 
+            list.Remove(2);
+            list.Remove(4);
         }
     }
 }
