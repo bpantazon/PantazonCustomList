@@ -73,57 +73,71 @@ namespace CustomListUnitTest
             
         }
 
+
+
+        [TestMethod]
+        public void Indexer_IndexZero_ReturnsValueOfIndexZero()
+        {
+            //Arrange 
+            CustomList<int> myList = new CustomList<int>();
+            int value = 3; //number being added to array
+            int expectedResult = 3; //number or value you expect to be at index[0]
+
+            myList.Add(value);
+
+            Assert.AreEqual(expectedResult, myList[0]);
+        }
+
+        [TestMethod]
+        public void Indexer_IndexOne_ReturnsValueOfIndexOne()
+        {
+            //Arrange 
+            CustomList<int> myList = new CustomList<int>();
+            int value = 3; //number being added to array
+            int otherValue = 5; //another number being added to the array
+            int expectedResult = 5;
+
+            myList.Add(value);
+            myList.Add(otherValue);
+
+            Assert.AreEqual(expectedResult, myList[1]);
+        }
+
+        [TestMethod]
+        public void Indexer_IndexFive_ReturnsValueOfIndexFive()
+        {
+            //Arrange 
+            CustomList<int> myList = new CustomList<int>();
+            int value = 3; //number being added to array
+            int otherValue = 5; //another number being added to the array
+            int valueThree = 27;
+            int valueFour = 74;
+            int valueFive = 88;
+            int valueSix = 12;
+            int expectedResult = 12;
+
+            myList.Add(value);
+            myList.Add(otherValue);
+            myList.Add(valueThree);
+            myList.Add(valueFour);
+            myList.Add(valueFive);
+            myList.Add(valueSix);
+           
+            Assert.AreEqual(expectedResult, myList[5]);
+        }
+
+        [TestMethod]
+        public void Indexer_LastIndexOfList_ReturnsValueOfLastIndex()
+        {
+            
+            CustomList<int> myList = new CustomList<int>();
+            int value = 3; //number being added to array
+            int expectedResult = 3;
+
+            myList.Add(value);
+
+            Assert.AreEqual(expectedResult, myList[myList.Count - 1]);
+        }
        
-
-        //[TestMethod]
-        //public void Indexer_IndexZero_ReturnsValueOfIndexZero()
-        //{
-        //    //Arrange 
-        //    CustomList<int> myList = new CustomList<int>();
-        //    int value = 3; //number being added to array
-        //    int expectedResult = 3; //number or value you expect to be at index[0]
-
-        //    myList.Add(value);
-
-        //    Assert.AreEqual(expectedResult, myList[0]);
-        //}
-
-        //[TestMethod]
-        //public void Indexer_IndexOne_ReturnsValueOfIndexOne()
-        //{
-        //    //Arrange 
-        //    CustomList<int> myList = new CustomList<int>();
-        //    int value = 3; //number being added to array
-        //    int otherValue = 5; //another number being added to the array
-        //    int expectedResult = 5; 
-
-        //    myList.Add(value);
-        //    myList.Add(otherValue);
-
-        //    Assert.AreEqual(expectedResult, /*myList[1]);*/
-        //}
-
-        //[TestMethod]
-        //public void Indexer_LastIndexOfList_ReturnsValueOfLastIndex()
-        //{
-        //    //Arrange 
-        //    CustomList<int> myList = new CustomList<int>();
-        //    int value = 3; //number being added to array
-        //    int expectedResult = 3;
-
-        //    myList.Add(value);
-
-        //    Assert.AreEqual(expectedResult, /*myList[myList.Count - 1]);*/
-        //}
-        //[TestMethod]
-        //public void Indexer_PreviousIndexValue_ReturnsIfPreviousValueShifted()
-        //{
-        //    //last bullet of add method on planning sheet
-        //}
-        //[TestMethod]
-        //public void Indexer_PreviousIndexValue_ReturnsIfPreviousValueShifted()
-        //{
-        //    //last bullet of add method on planning sheet
-        //}
     }
 }

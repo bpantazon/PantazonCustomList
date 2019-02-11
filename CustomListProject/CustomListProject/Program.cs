@@ -16,6 +16,7 @@ namespace CustomListProject
             list.Add(4);
             list.Add(6);
             list.Add(24);
+            Console.WriteLine(list[0]);
             //list.Add(27);
             //list.Add(99);
             //list.Add("good");

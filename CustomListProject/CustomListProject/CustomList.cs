@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListProject
 {
-    public class CustomList<T>
+    public class CustomList<T>: IEnumerable
     {
         private T[] firstArray = new T[4];
         public int Count  { get; set; }
@@ -17,6 +18,11 @@ namespace CustomListProject
             Count = 0;
             Capacity = 4;
             firstArray = new T[Capacity];
+        }
+        public T this[int i]
+        {
+            get { return firstArray[i]; }
+            set { firstArray[i] = value; }
         }
         public void Add(T item)
         {
@@ -63,6 +69,13 @@ namespace CustomListProject
             }
             firstArray = newArray;
         }
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        
         
     }
 }
