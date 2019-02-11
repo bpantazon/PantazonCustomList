@@ -15,7 +15,7 @@ namespace CustomListUnitTest
             CustomList<int> myList = new CustomList<int>();
             int value = 3; //the number being added to the array
             int expectedResult = 1; //the amount of myList.Count that is expected
-                       
+
             //Act
             myList.Add(value);
 
@@ -54,6 +54,13 @@ namespace CustomListUnitTest
             //Assert
             Assert.AreEqual(expectedResult, myList.Count);
         }
+        [TestMethod]
+        public void Remove_Item_ReturnsListCountMinusOne()
+        {
+            CustomList<int> myList = new CustomList<int>(); //can't make list with values assigned
+
+        }
+        
         //[TestMethod]
         //public void Indexer_IndexZero_ReturnsValueOfIndexZero()
         //{

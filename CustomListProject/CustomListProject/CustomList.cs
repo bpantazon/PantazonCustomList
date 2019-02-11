@@ -20,11 +20,11 @@ namespace CustomListProject
         }
         public void Add(T item)
         {
-            if (Count == Capacity)
+            if (Count == Capacity) //this only happens once the array is filled with values
             {
-                Capacity += 4;
-                T[] newArray = new T[Capacity];
-                for (int i = 0; i < Count; i++)
+                Capacity += 4; //adds another 4 to the capacity counter with the new array
+                T[] newArray = new T[Capacity]; //creates new array with as many indexes as the capacity counter
+                for (int i = 0; i < Count; i++) 
                 {
                     newArray[i] = firstArray[i];
                 }
@@ -35,13 +35,28 @@ namespace CustomListProject
             else
             {
                 firstArray[Count] = item;
-
                 Count++;
-            }           
+            }
         }
-        public void Remove(T item)
+        public bool Remove(T item)
         {
-
+            for (int i = 0; i < Count; i++)
+            {
+                if (firstArray[i].Equals(item))
+                {
+                    Count--;
+                    ShiftArray(i);
+                    return true;
+                }
+            }
+            return false;
+        }
+        private void ShiftArray(int index)
+        {
+            for (int i = 0; i < index; i++)
+            {
+                firstArray[i] = firstArray[index + 1];
+            }
         }
         
     }
