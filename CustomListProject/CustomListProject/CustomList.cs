@@ -49,6 +49,7 @@ namespace CustomListProject
                 Count++;
             }
         }
+        //gives the correct value while method is being called, needs a place to store that new result
         public CustomList<T>Zip(CustomList<T> listOne, CustomList<T> listTwo)
         {
             CustomList<T> finalResult = new CustomList<T>();           
@@ -60,8 +61,8 @@ namespace CustomListProject
                     finalResult.Add(listTwo[i]);
                 }
             }
-            listOne = finalResult;
-            return listOne;
+            
+            return finalResult;
 
             //if (listOne.Count != 0)
             //{
@@ -149,9 +150,7 @@ namespace CustomListProject
             //loop through your array and add value of each index to the empty string
             for (int i = 0; i < Count; i++)
             {
-               myString = myString + $"{firstArray[i]}";
-               
-                
+               myString = myString + $"{firstArray[i]}";               
             }
             return myString;
         }
