@@ -49,8 +49,34 @@ namespace CustomListProject
                 Count++;
             }
         }
-        
-        //start of add two custom lists
+        public CustomList<T>Zip(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> finalResult = new CustomList<T>();           
+            if (listOne.Count != 0)
+            {
+                for (int i = 0; i < listOne.Count; i++)
+                {
+                    finalResult.Add(listOne[i]);
+                    finalResult.Add(listTwo[i]);
+                }
+            }
+            listOne = finalResult;
+            return listOne;
+
+            //if (listOne.Count != 0)
+            //{
+            //for (int i = 0; i < listOne.Count; i++)
+            //{
+            //   yield return finalResult.Add(listOne[i]);
+            //    yield return finalResult.Add(listTwo[i]);
+
+            //}
+            //}
+            //return finalResult;
+        }
+
+
+        //Overload + operator
         public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
         {
             CustomList<T> finalList = new CustomList<T>();
@@ -69,8 +95,28 @@ namespace CustomListProject
                 }
             }
             
+            return finalList;               
+        }
+        //OverLoad - operator
+        public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
+        {
+            CustomList<T> finalList = new CustomList<T>();
+            if (listOne.Count != 0)
+            {
+                for (int i = 0; i < listOne.Count; i++)
+                {
+                    finalList.Add(listOne[i]);
+                }
+            }
+            if (listTwo.Count != 0)
+            {
+                for (int j = 0; j < listTwo.Count; j++)
+                {
+                    finalList.Add(listTwo[j]);
+                }
+            }
+
             return finalList;
-               
         }
         public bool Remove(T item)
         {
@@ -89,7 +135,6 @@ namespace CustomListProject
         private void ShiftItems(int index)
         {
             T[] newArray = new T[Capacity];
-            //newArray = firstArray;
             //index was replaced with Count in for loop
             for (int i = 0; i < Count; i++)
             {

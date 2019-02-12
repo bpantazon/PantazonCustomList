@@ -308,27 +308,36 @@ namespace CustomListUnitTest
 
             Assert.AreEqual(expectedResult, myList.ToString());
         }
-        //[TestMethod]
-        //public void AddOverLoad_TwoCustomLists_ReturnsNewListCount()
-        //{
-        //    //Arrange
-        //    CustomList<int> listOne = new CustomList<int>() { 1, 3, 5 };
-        //    CustomList<int> listTwo = new CustomList<int>() { 2, 4, 6 };
-        //     //the number being added to the array
-        //    CustomList<int> expectedResult = new CustomList<int>() { 1, 2, 3, 4, 5, 6 }; //the amount of myList.Count that is expected
+        [TestMethod]
+        public void AddOverLoad_TwoCustomLists_ReturnsCombinedCustomList()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> listTwo = new CustomList<int>() { 2, 4, 6 };           
+            CustomList<int> expectedResult = new CustomList<int>() {135246}; //the amount of myList.Count that is expected
 
-        //    //Act
-        //    listOne.Add(listTwo);
+            //Act
+            CustomList<int> result = listOne + listTwo;
 
-        //    //Assert
-        //    Assert.AreEqual(expectedResult, //list with both stuff in it);
-        //}
+            //Assert
+            Assert.AreEqual(expectedResult, result);
+        }
+        [TestMethod]
+        public void MinusOverLoad_TwoCustomLists_ReturnsSubtractedCustomLists()
+        {
+            CustomList<int> listOne = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> listTwo = new CustomList<int>() { 2, 1, 6 };
+            CustomList<int> expectedResult = new CustomList<int>() { 3, 5 };
+
+            CustomList<int> result = listOne - listTwo;
+
+        }
         //[TestMethod]
         //public void Zip_TwoCustomListInstances_ReturnFormOfZipper()
         //{
         //    CustomList<int> oddList = new CustomList<int>() { 1, 3, 5 };
         //    CustomList<int> evenList = new CustomList<int>() { 2, 4, 6 };
-            
+
 
         //    oddList.Zip(even);
         //}
