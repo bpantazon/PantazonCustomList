@@ -13,8 +13,6 @@ namespace CustomListProject
         public int Count { get; set; }
         private int Capacity { get; set; }
         
-        //public T myString = (T)(object)"";
-        //public string otherString = (string)(object);
 
         public CustomList()
         {
@@ -51,20 +49,26 @@ namespace CustomListProject
                 Count++;
             }
         }
-        //needs a public modifier?
+        
         //start of add two custom lists
         public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
         {
             CustomList<T> finalList = new CustomList<T>();
-            for (int i = 0; i < (listOne.Count + listTwo.Count); i++)
+            if (listOne.Count != 0)
             {
-                finalList[i] = listOne[i];
-                finalList[i + 1] = listTwo[i];
-                //for (int j = 0; j < (listOne.Count + listTwo.Count); j++)
-                //{
-                //    finalList[j + 1]
-                //}
+                for (int i = 0; i < listOne.Count; i++)
+                {
+                    finalList.Add(listOne[i]);
+                }
             }
+            if (listTwo.Count != 0)
+            {
+                for (int j = 0; j < listTwo.Count; j++)
+                {
+                    finalList.Add(listTwo[j]);
+                }
+            }
+            
             return finalList;
                
         }
@@ -93,7 +97,7 @@ namespace CustomListProject
             }
             firstArray = newArray;
         }
-        //doesn't work
+        
         public override string ToString() 
         {
             string myString = "";
