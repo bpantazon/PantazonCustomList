@@ -144,23 +144,25 @@ namespace CustomListProject
         public bool Remove(T item)
         {
             
-            T[] newArray = new T[4];
+            T[] newArray = new T[Capacity];
+            
             foreach (T item1 in firstArray)
             {
+                int j = 0;
                 for (int i = 0; i < count; i++)
                 {
                     
                     if (!item.Equals(firstArray[i]))
                     {
-                        int j = 0;
-                        newArray[i] = firstArray[i];
+                        
+                        newArray[j] = firstArray[i];
                         j++;
                     }
                 }
 
             }
-            
-            //count--;
+
+            count--;
             firstArray = newArray;
             return true;
         }

@@ -31,7 +31,7 @@ namespace CustomListProject
             //list.Add("Monday");
             //list.Add("Ron");
 
-            list.Remove(3);
+            list.Remove(1);
             //list.Remove(4);
         }
     }
