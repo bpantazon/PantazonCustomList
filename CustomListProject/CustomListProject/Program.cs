@@ -11,10 +11,13 @@ namespace CustomListProject
         static void Main(string[] args)
         {
             CustomList<int> list = new CustomList<int>() { 1, 3, 5 };
-            CustomList<int> listTwo = new CustomList<int>() { 2, 4, 6 };
-            CustomList<int> result = new CustomList<int>() { };
-            list = list.Zip(list, listTwo);
-            //List<int> result = list + listTwo;
+            //CustomList<int> listTwo = new CustomList<int>() { 2, 3, 6 };
+            //CustomList<int> result = new CustomList<int>() { };
+            //list = list.Zip(list, listTwo);
+            //CustomList<int> result = list - listTwo;
+            //Console.WriteLine(result);
+            //Console.ReadLine();
+
             //list.Add(2);
             //list.Add(4);
             //list.Add(6);
@@ -28,7 +31,7 @@ namespace CustomListProject
             //list.Add("Monday");
             //list.Add("Ron");
 
-            //list.Remove(2);
+            list.Remove(5);
             //list.Remove(4);
         }
     }

@@ -330,17 +330,19 @@ namespace CustomListUnitTest
             CustomList<int> expectedResult = new CustomList<int>() { 3, 5 };
 
             CustomList<int> result = listOne - listTwo;
+        }
+        [TestMethod]
+        public void Zip_TwoCustomListInstances_ReturnFormOfZipper()
+        {
+            CustomList<int> oddList = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> evenList = new CustomList<int>() { 2, 4, 6 };
+            CustomList<int> expectedResult = new CustomList<int> { 123456 };
+
+            oddList = oddList.Zip(oddList, evenList);
+
+            Assert.AreEqual(expectedResult, oddList);
 
         }
-        //[TestMethod]
-        //public void Zip_TwoCustomListInstances_ReturnFormOfZipper()
-        //{
-        //    CustomList<int> oddList = new CustomList<int>() { 1, 3, 5 };
-        //    CustomList<int> evenList = new CustomList<int>() { 2, 4, 6 };
-
-
-        //    oddList.Zip(even);
-        //}
 
 
     }

@@ -10,23 +10,26 @@ namespace CustomListProject
     public class CustomList<T> : IEnumerable
     {
         private T[] firstArray = new T[4];
-        public int Count { get; set; }
+        public int Count { get { return count; } }
+        private int count;
         private int Capacity { get; set; }
         
 
         public CustomList()
         {
-            Count = 0;
+            count = 0;
             Capacity = 4;
+            
             firstArray = new T[Capacity];
         }
         public T this[int i]
         {
             //if ( Count >= i >= 0)
             //{
-
-            get { return firstArray[i]; }
-            set { firstArray[i] = value; }
+           
+                get { return firstArray[i]; }
+                set { firstArray[i] = value; }
+            
             //}
         }
         public void Add(T item)
@@ -41,18 +44,19 @@ namespace CustomListProject
                 }
                 firstArray = newArray;
                 firstArray[Count] = item;
-                Count++;
+                count++;
             }
             else
             {
                 firstArray[Count] = item;
-                Count++;
+                count++;
             }
         }
+        
         //gives the correct value while method is being called, needs a place to store that new result
         public CustomList<T>Zip(CustomList<T> listOne, CustomList<T> listTwo)
         {
-            CustomList<T> finalResult = new CustomList<T>();           
+            CustomList<T> finalResult = new CustomList<T>();
             if (listOne.Count != 0)
             {
                 for (int i = 0; i < listOne.Count; i++)
@@ -60,8 +64,7 @@ namespace CustomListProject
                     finalResult.Add(listOne[i]);
                     finalResult.Add(listTwo[i]);
                 }
-            }
-            
+            }          
             return finalResult;
 
             //if (listOne.Count != 0)
@@ -99,26 +102,41 @@ namespace CustomListProject
             return finalList;               
         }
         //OverLoad - operator
+        //consider foreach loop
         public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
         {
+            //for each item that matches from listTwo to listOne, remove item from listOne
             CustomList<T> finalList = new CustomList<T>();
             if (listOne.Count != 0)
             {
-                for (int i = 0; i < listOne.Count; i++)
+                foreach (T item1 in listOne)
                 {
-                    finalList.Add(listOne[i]);
-                }
-            }
-            if (listTwo.Count != 0)
-            {
-                for (int j = 0; j < listTwo.Count; j++)
-                {
-                    finalList.Add(listTwo[j]);
-                }
-            }
-
-            return finalList;
+                    foreach(T item2 in listTwo)
+                    {
+                        if (item1.Equals(item2))
+                        {
+                            listOne.Remove(item1);
+                        }
+                    }
+                }               
+            }        
+            return listOne;
         }
+        //possible new Remove
+        //create new array, add items from first list that do not equal T item
+        //public bool Remove(T item)
+        //{
+        //    T[] newArray = new T[4];
+        //    for (int i = 0; i < Count; i++)
+        //    {
+        //        if (item.Equals(firstArray[i]) == false)
+        //        {
+        //            newArray[i] = firstArray[i];
+        //        }
+        //    }
+        //    firstArray = newArray;
+        //    return true;          
+        //}
         public bool Remove(T item)
         {
             for (int i = 0; i < Count; i++)
@@ -132,7 +150,6 @@ namespace CustomListProject
             }
             return false;
         }
-        
         private void ShiftItems(int index)
         {
             T[] newArray = new T[Capacity];
@@ -143,11 +160,10 @@ namespace CustomListProject
             }
             firstArray = newArray;
         }
-        
+
         public override string ToString() 
         {
             string myString = "";
-            //loop through your array and add value of each index to the empty string
             for (int i = 0; i < Count; i++)
             {
                myString = myString + $"{firstArray[i]}";               
