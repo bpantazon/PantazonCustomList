@@ -53,7 +53,7 @@ namespace CustomListProject
             }
         }
         
-        //gives the correct value while method is being called, needs a place to store that new result
+        
         public CustomList<T>Zip(CustomList<T> listOne, CustomList<T> listTwo)
         {
             CustomList<T> finalResult = new CustomList<T>();
@@ -102,50 +102,23 @@ namespace CustomListProject
             return finalList;               
         }
         //OverLoad - operator
-        //consider foreach loop
+        
         public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
         {
-            //for each item that matches from listTwo to listOne, remove item from listOne
-            //CustomList<T> finalList = new CustomList<T>();
-            //if (listOne.count != 0)
-            //{
-            //bool matched;
+           
                 foreach (T item1 in listOne)
-                {
-                    //foreach (T item2 in listTwo)
+                {                   
                     for (int i = 0; i < listTwo.count; i++)
                     {
                     if (item1.Equals(listTwo[i]))
                         {
-                            listOne.Remove(item1);
-                        //matched = true;
-                        
+                            listOne.Remove(item1);               
                         }
-
                     }
-                }
-            //}      
+                }           
             return listOne;
         }
-        //possible new Remove
-        //create new array, add items from first list that do not equal T item
-        //public bool Remove(T item)
-        //{
-        //    T[] newArray = new T[Capacity];
-        //    for (int i = 0; i < count; i++)
-        //    {
-        //        if (!item.Equals(firstArray[i]))
-        //        {
-        //            int j = 0;
-
-        //            newArray[j] = firstArray[i];
-        //            j++;
-        //        }
-        //    }
-        //    count--;
-        //    firstArray = newArray;
-        //    return true;
-        //}
+      
         public bool Remove(T item)
         {
             
@@ -207,7 +180,7 @@ namespace CustomListProject
 
         public IEnumerator GetEnumerator()
         {
-            //throw new NotImplementedException();
+            
             for (int index = 0; index < firstArray.Length; index++)
             {
                 yield return firstArray[index];

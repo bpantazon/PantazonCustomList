@@ -1,0 +1,39 @@
+CustomList<T>.Remove(T) Method
+
+Removes all occurences of a specific object contained in one CustomList<T>
+from another CustomList<T>
+
+Parameters
+(CustomList<T> listOne, CustomList<T> listTwo)
+
+Returns
+listOne with the matching item removed. Returns the original listOne if no items match in listTwo
+
+Implements
+Remove(T item)
+
+Examples:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CustomListProject
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			
+            		CustomList<int> list = new CustomList<int>() { 1, 3, 5 };
+            		CustomList<int> listTwo = new CustomList<int>() { 1, 4, 6 };
+	    		result = list - listTwo;
+		}
+	}
+}
+	//This will return the CustomList result as { 3, 5 }, since list and listTwo
+	//contain "1". The minus operator checks each item from list and compares them
+	//to each index value of listTwo. If an item from list equals an index value
+	//in listTwo, that specific item is removed from listOne
