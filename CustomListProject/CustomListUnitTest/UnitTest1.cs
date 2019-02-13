@@ -314,13 +314,27 @@ namespace CustomListUnitTest
             //Arrange
             CustomList<int> listOne = new CustomList<int>() { 1, 3, 5 };
             CustomList<int> listTwo = new CustomList<int>() { 2, 4, 6 };           
-            CustomList<int> expectedResult = new CustomList<int>() {135246}; //the amount of myList.Count that is expected
+            CustomList<int> expectedResult = new CustomList<int> { 1, 3, 5, 2, 4, 6 }; 
 
             //Act
             CustomList<int> result = listOne + listTwo;
 
             //Assert
-            Assert.AreEqual(expectedResult, result);
+            Assert.IsTrue(expectedResult[0] == result[0] && expectedResult[1] == result[1]);
+        }
+        [TestMethod]
+        public void AddOverLoad_TwoCustomLists_ReturnsIndexOfListOne()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> listTwo = new CustomList<int>() { 2, 4, 6 };
+            int expectedResult = 2;
+
+            //Act
+            CustomList<int> result = listOne + listTwo;
+
+            //Assert
+            Assert.AreEqual(expectedResult, result[3]);
         }
         [TestMethod]
         public void MinusOverLoad_TwoCustomLists_ReturnsSubtractedCustomLists()
@@ -330,13 +344,17 @@ namespace CustomListUnitTest
             CustomList<int> expectedResult = new CustomList<int>() { 3, 5 };
 
             CustomList<int> result = listOne - listTwo;
+
+            //edit test assert to actually test if true
+            Assert.IsTrue(expectedResult == result);
+            
         }
         [TestMethod]
         public void Zip_TwoCustomListInstances_ReturnFormOfZipper()
         {
             CustomList<int> oddList = new CustomList<int>() { 1, 3, 5 };
             CustomList<int> evenList = new CustomList<int>() { 2, 4, 6 };
-            CustomList<int> expectedResult = new CustomList<int> { 123456 };
+            CustomList<int> expectedResult = new CustomList<int> { 1, 2, 3, 4, 5, 6 };
 
             oddList = oddList.Zip(oddList, evenList);
 

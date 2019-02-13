@@ -106,20 +106,25 @@ namespace CustomListProject
         public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
         {
             //for each item that matches from listTwo to listOne, remove item from listOne
-            CustomList<T> finalList = new CustomList<T>();
-            if (listOne.count != 0)
-            {
+            //CustomList<T> finalList = new CustomList<T>();
+            //if (listOne.count != 0)
+            //{
+            //bool matched;
                 foreach (T item1 in listOne)
                 {
-                    foreach(T item2 in listTwo)
+                    //foreach (T item2 in listTwo)
+                    for (int i = 0; i < listTwo.count; i++)
                     {
-                        if (item1.Equals(item2))
+                    if (item1.Equals(listTwo[i]))
                         {
                             listOne.Remove(item1);
+                        //matched = true;
+                        
                         }
+
                     }
-                }               
-            }        
+                }
+            //}      
             return listOne;
         }
         //possible new Remove
