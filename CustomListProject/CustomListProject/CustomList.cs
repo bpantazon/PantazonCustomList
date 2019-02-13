@@ -24,7 +24,7 @@ namespace CustomListProject
         }
         public T this[int i]
         {
-            //if ( Count >= i >= 0)
+            //if ( count >= i >= 0)
             //{
            
                 get { return firstArray[i]; }
@@ -34,21 +34,21 @@ namespace CustomListProject
         }
         public void Add(T item)
         {
-            if (Count == Capacity) //this only happens once the array is filled with values
+            if (count == Capacity) //this only happens once the array is filled with values
             {
                 Capacity += 4; //adds another 4 to the capacity counter with the new array
                 T[] newArray = new T[Capacity]; //creates new array with as many indexes as the capacity counter
-                for (int i = 0; i < Count; i++) 
+                for (int i = 0; i < count; i++) 
                 {
                     newArray[i] = firstArray[i];
                 }
                 firstArray = newArray;
-                firstArray[Count] = item;
+                firstArray[count] = item;
                 count++;
             }
             else
             {
-                firstArray[Count] = item;
+                firstArray[count] = item;
                 count++;
             }
         }
@@ -57,9 +57,9 @@ namespace CustomListProject
         public CustomList<T>Zip(CustomList<T> listOne, CustomList<T> listTwo)
         {
             CustomList<T> finalResult = new CustomList<T>();
-            if (listOne.Count != 0)
+            if (listOne.count != 0)
             {
-                for (int i = 0; i < listOne.Count; i++)
+                for (int i = 0; i < listOne.count; i++)
                 {
                     finalResult.Add(listOne[i]);
                     finalResult.Add(listTwo[i]);
@@ -67,9 +67,9 @@ namespace CustomListProject
             }          
             return finalResult;
 
-            //if (listOne.Count != 0)
+            //if (listOne.count != 0)
             //{
-            //for (int i = 0; i < listOne.Count; i++)
+            //for (int i = 0; i < listOne.count; i++)
             //{
             //   yield return finalResult.Add(listOne[i]);
             //    yield return finalResult.Add(listTwo[i]);
@@ -84,16 +84,16 @@ namespace CustomListProject
         public static CustomList<T> operator +(CustomList<T> listOne, CustomList<T> listTwo)
         {
             CustomList<T> finalList = new CustomList<T>();
-            if (listOne.Count != 0)
+            if (listOne.count != 0)
             {
-                for (int i = 0; i < listOne.Count; i++)
+                for (int i = 0; i < listOne.count; i++)
                 {
                     finalList.Add(listOne[i]);
                 }
             }
-            if (listTwo.Count != 0)
+            if (listTwo.count != 0)
             {
-                for (int j = 0; j < listTwo.Count; j++)
+                for (int j = 0; j < listTwo.count; j++)
                 {
                     finalList.Add(listTwo[j]);
                 }
@@ -107,7 +107,7 @@ namespace CustomListProject
         {
             //for each item that matches from listTwo to listOne, remove item from listOne
             CustomList<T> finalList = new CustomList<T>();
-            if (listOne.Count != 0)
+            if (listOne.count != 0)
             {
                 foreach (T item1 in listOne)
                 {
@@ -124,47 +124,48 @@ namespace CustomListProject
         }
         //possible new Remove
         //create new array, add items from first list that do not equal T item
-        //public bool Remove(T item)
-        //{
-        //    T[] newArray = new T[4];
-        //    for (int i = 0; i < Count; i++)
-        //    {
-        //        if (item.Equals(firstArray[i]) == false)
-        //        {
-        //            newArray[i] = firstArray[i];
-        //        }
-        //    }
-        //    firstArray = newArray;
-        //    return true;          
-        //}
         public bool Remove(T item)
         {
-            for (int i = 0; i < Count; i++)
+            T[] newArray = new T[4];
+            for (int i = 0; i < count; i++)
             {
-                if (firstArray[i].Equals(item))
+                if (item.Equals(firstArray[i]) == false)
                 {
-                    Count--;
-                    ShiftItems(i);
-                    return true;
+                    newArray[i] = firstArray[i];
                 }
             }
-            return false;
-        }
-        private void ShiftItems(int index)
-        {
-            T[] newArray = new T[Capacity];
-            //index was replaced with Count in for loop
-            for (int i = 0; i < Count; i++)
-            {
-                newArray[i] = firstArray[i + 1];
-            }
+            
             firstArray = newArray;
+            return true;
         }
+        //public bool Remove(T item)
+        //{
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        if (firstArray[i].Equals(item))
+        //        {
+        //            count--;
+        //            ShiftItems(i);
+        //            return true;
+        //        }
+        //    }
+        //    return false;
+        //}
+        //private void ShiftItems(int index)
+        //{
+        //    T[] newArray = new T[Capacity];
+        //    //index was replaced with count in for loop
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        newArray[i] = firstArray[i + 1];
+        //    }
+        //    firstArray = newArray;
+        //}
 
         public override string ToString() 
         {
             string myString = "";
-            for (int i = 0; i < Count; i++)
+            for (int i = 0; i < count; i++)
             {
                myString = myString + $"{firstArray[i]}";               
             }
