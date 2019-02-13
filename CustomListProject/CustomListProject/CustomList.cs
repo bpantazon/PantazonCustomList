@@ -124,17 +124,43 @@ namespace CustomListProject
         }
         //possible new Remove
         //create new array, add items from first list that do not equal T item
+        //public bool Remove(T item)
+        //{
+        //    T[] newArray = new T[Capacity];
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        if (!item.Equals(firstArray[i]))
+        //        {
+        //            int j = 0;
+
+        //            newArray[j] = firstArray[i];
+        //            j++;
+        //        }
+        //    }
+        //    count--;
+        //    firstArray = newArray;
+        //    return true;
+        //}
         public bool Remove(T item)
         {
+            
             T[] newArray = new T[4];
-            for (int i = 0; i < count; i++)
+            foreach (T item1 in firstArray)
             {
-                if (item.Equals(firstArray[i]) == false)
+                for (int i = 0; i < count; i++)
                 {
-                    newArray[i] = firstArray[i];
+                    
+                    if (!item.Equals(firstArray[i]))
+                    {
+                        int j = 0;
+                        newArray[i] = firstArray[i];
+                        j++;
+                    }
                 }
+
             }
             
+            //count--;
             firstArray = newArray;
             return true;
         }
