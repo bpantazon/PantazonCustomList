@@ -309,7 +309,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expectedResult, myList.ToString());
         }
         [TestMethod]
-        public void AddOverLoad_TwoCustomLists_ReturnsCombinedCustomList()
+        public void AddOverLoad_TwoCustomLists_ReturnsIfIndexZeroAndIndexOneOfExpectedAndResultAreEqual()
         {
             //Arrange
             CustomList<int> listOne = new CustomList<int>() { 1, 3, 5 };
@@ -321,6 +321,20 @@ namespace CustomListUnitTest
 
             //Assert
             Assert.IsTrue(expectedResult[0] == result[0] && expectedResult[1] == result[1]);
+        }
+        [TestMethod]
+        public void AddOverLoad_TwoCustomLists_ReturnsIfAllIndexesAreEqual()
+        {
+            //Arrange
+            CustomList<int> listOne = new CustomList<int>() { 1, 3, 5, 7 };
+            CustomList<int> listTwo = new CustomList<int>() { 2, 4, 6, 8 };
+            CustomList<int> expectedResult = new CustomList<int> { 1, 3, 5, 7, 2, 4, 6, 8 };
+
+            //Act
+            CustomList<int> result = listOne + listTwo;
+
+            //Assert
+            Assert.IsTrue(expectedResult[0] == result[0] && expectedResult[1] == result[1] && expectedResult[2] == result[2] && expectedResult[3] == result[3] && expectedResult[4] == result[4] && expectedResult[5] == result[5] && expectedResult[6] == result[6] && expectedResult[7] == result[7]);
         }
         [TestMethod]
         public void AddOverLoad_TwoCustomLists_ReturnsIndexOfListOne()
@@ -346,11 +360,11 @@ namespace CustomListUnitTest
             CustomList<int> result = listOne - listTwo;
 
             //edit test assert to actually test if true
-            Assert.IsTrue(expectedResult == result);
+            Assert.IsTrue(expectedResult[0] == result[0] && expectedResult[1] == result[1]);
             
         }
         [TestMethod]
-        public void Zip_TwoCustomListInstances_ReturnFormOfZipper()
+        public void Zip_TwoCustomListInstances_ReturnIfIndexZeroOfExpectedAndOddListAreEqual()
         {
             CustomList<int> oddList = new CustomList<int>() { 1, 3, 5 };
             CustomList<int> evenList = new CustomList<int>() { 2, 4, 6 };
@@ -358,7 +372,7 @@ namespace CustomListUnitTest
 
             oddList = oddList.Zip(oddList, evenList);
 
-            Assert.AreEqual(expectedResult, oddList);
+            Assert.IsTrue(oddList[0] == expectedResult[0]);
 
         }
 
