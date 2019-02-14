@@ -275,6 +275,7 @@ namespace CustomListUnitTest
             Assert.AreEqual(expectedResult, myList.ToString());
 
         }
+
         [TestMethod]
         public void ToString_myList_ReturnsStringWithThreeValues()
         {
@@ -415,11 +416,11 @@ namespace CustomListUnitTest
         {
             CustomList<int> oddList = new CustomList<int>() { 1, 3, 5, 7 };
             CustomList<int> evenList = new CustomList<int>() { 2, 4, 6, 8 };
-            int expectedResult = 4;
+            CustomList<int> expectedResult = new CustomList<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
 
             oddList = oddList.Zip(oddList, evenList);
 
-            Assert.AreEqual(expectedResult, oddList[3]);
+            Assert.IsTrue(expectedResult[0] == oddList[0] && expectedResult[1] == oddList[1] && expectedResult[2] == oddList[2] && expectedResult[3] == oddList[3] && expectedResult[4] == oddList[4] && expectedResult[5] == oddList[5] && expectedResult[6] == oddList[6] && expectedResult[7] == oddList[7]);
 
         }
     }

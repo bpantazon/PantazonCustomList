@@ -25,12 +25,12 @@ namespace CustomListProject
         public T this[int i]
         {
             //if ( count >= i >= 0)
-            //{
+              //{
            
                 get { return firstArray[i]; }
                 set { firstArray[i] = value; }
             
-            //}
+              //}
         }
         public void Add(T item)
         {
@@ -67,16 +67,6 @@ namespace CustomListProject
             }          
             return finalResult;
 
-            //if (listOne.count != 0)
-            //{
-            //for (int i = 0; i < listOne.count; i++)
-            //{
-            //   yield return finalResult.Add(listOne[i]);
-            //    yield return finalResult.Add(listTwo[i]);
-
-            //}
-            //}
-            //return finalResult;
         }
 
 
@@ -101,8 +91,8 @@ namespace CustomListProject
             
             return finalList;               
         }
-        //OverLoad - operator
-        
+
+        //OverLoad - operator       
         public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
         {         
                 foreach (T item1 in listOne)
@@ -119,26 +109,20 @@ namespace CustomListProject
         }
       
         public bool Remove(T item)
-        {
-            
-            T[] newArray = new T[Capacity];
-            
+        {           
+            T[] newArray = new T[Capacity];           
             foreach (T item1 in firstArray)
             {
                 int j = 0;
                 for (int i = 0; i < count; i++)
-                {
-                    
+                {                   
                     if (!item.Equals(firstArray[i]))
-                    {
-                        
+                    {                      
                         newArray[j] = firstArray[i];
                         j++;
                     }
                 }
-
             }
-
             count--;
             firstArray = newArray;
             return true;
@@ -172,7 +156,7 @@ namespace CustomListProject
             string myString = "";
             for (int i = 0; i < count; i++)
             {
-               myString = myString + $"{firstArray[i]}";               
+               myString += $"{firstArray[i]}";               
             }
             return myString;
         }

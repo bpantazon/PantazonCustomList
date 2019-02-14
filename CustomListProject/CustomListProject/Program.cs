@@ -13,9 +13,9 @@ namespace CustomListProject
             CustomList<int> list = new CustomList<int>() { 1, 3, 5 };
             CustomList<int> listTwo = new CustomList<int>() { 1, 4, 6 };
             CustomList<int> result = new CustomList<int>() { };
-            //list = list.Zip(list, listTwo);
+            list = list.Zip(list, listTwo);
             //result = list + listTwo;
-            result = list - listTwo;
+            //result = list - listTwo;
             //Console.WriteLine(result);
             //Console.ReadLine();
 
