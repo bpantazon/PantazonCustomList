@@ -364,6 +364,17 @@ namespace CustomListUnitTest
             
         }
         [TestMethod]
+        public void MinusOverLoad_TwoCustomListsWithMulitpleSameValues_ReturnsIfIndexesAreEqual()
+        {
+            CustomList<int> listOne = new CustomList<int>() { 2, 1, 5 };
+            CustomList<int> listTwo = new CustomList<int>() { 2, 1, 6 };
+            CustomList<int> expectedResult = new CustomList<int>() { 5 };
+
+            CustomList<int> result = listOne - listTwo;
+
+            Assert.IsTrue(expectedResult[0] == result[0]);
+        }
+        [TestMethod]
         public void MinusOverLoad_TwoCustomLists_ReturnsNewCount()
         {
             CustomList<int> listOne = new CustomList<int>() { 1, 3, 5 };
@@ -373,6 +384,18 @@ namespace CustomListUnitTest
             CustomList<int> result = listOne - listTwo;
 
             Assert.AreEqual(expectedResult, result.Count );
+
+        }
+        [TestMethod]
+        public void MinusOverLoad_TwoLargerCustomLists_ReturnsNewCount()
+        {
+            CustomList<int> listOne = new CustomList<int>() { 1, 3, 5, 7, 9 };
+            CustomList<int> listTwo = new CustomList<int>() { 2, 1, 6, 8, 10 };
+            int expectedResult = 4;
+
+            CustomList<int> result = listOne - listTwo;
+
+            Assert.AreEqual(expectedResult, result.Count);
 
         }
         [TestMethod]
