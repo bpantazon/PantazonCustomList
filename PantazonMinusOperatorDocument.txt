@@ -13,6 +13,25 @@ Implements
 Remove(T item)
 
 Examples:
+//Overloading an operator requires a public and static modifier
+//Parameters include two instances of a CustomList<T>
+public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
+	{         
+        	foreach (T item1 in listOne)//foreach will run the logic below for every T item1 in our first list
+                {                   
+                    for (int i = 0; i < listTwo.count; i++)//checks every item in listOne for each index of listTwo
+                    {
+                    if (item1.Equals(listTwo[i])) //checks if the item from listOne is the same at each index of listTwo
+                        {
+                            listOne.Remove(item1); //if an item from listOne is the same as listTwo at the given index, the item is removed from listOne              
+                        }
+                    }
+                }           
+            return listOne; //returns the new listOne with the matching items removed
+        }
+
+
+
 
 using System;
 using System.Collections.Generic;
