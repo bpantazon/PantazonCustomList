@@ -386,7 +386,41 @@ namespace CustomListUnitTest
             Assert.IsTrue(oddList[0] == expectedResult[0]);
 
         }
+        [TestMethod]
+        public void Zip_TwoCustomListInstances_ReturnCount()
+        {
+            CustomList<int> oddList = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> evenList = new CustomList<int>() { 2, 4, 6 };
+            int expectedResult = 6;
 
+            oddList = oddList.Zip(oddList, evenList);
 
+            Assert.AreEqual(expectedResult, oddList.Count);
+
+        }
+        [TestMethod]
+        public void Zip_TwoCustomListsAtFullCapacity_ReturnMiddleIndex() 
+        {
+            CustomList<int> oddList = new CustomList<int>() { 1, 3, 5, 7 };
+            CustomList<int> evenList = new CustomList<int>() { 2, 4, 6, 8 };
+            int expectedResult = 4;
+
+            oddList = oddList.Zip(oddList, evenList);
+
+            Assert.AreEqual(expectedResult, oddList[3]);
+
+        }
+        [TestMethod]
+        public void Zip_TwoCustomListsAtFullCapacity_ReturnAllIndexes()
+        {
+            CustomList<int> oddList = new CustomList<int>() { 1, 3, 5, 7 };
+            CustomList<int> evenList = new CustomList<int>() { 2, 4, 6, 8 };
+            int expectedResult = 4;
+
+            oddList = oddList.Zip(oddList, evenList);
+
+            Assert.AreEqual(expectedResult, oddList[3]);
+
+        }
     }
 }

@@ -104,8 +104,7 @@ namespace CustomListProject
         //OverLoad - operator
         
         public static CustomList<T> operator -(CustomList<T> listOne, CustomList<T> listTwo)
-        {
-           
+        {         
                 foreach (T item1 in listOne)
                 {                   
                     for (int i = 0; i < listTwo.count; i++)
